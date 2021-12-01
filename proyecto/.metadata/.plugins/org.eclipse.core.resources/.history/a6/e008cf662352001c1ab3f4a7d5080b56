@@ -1,0 +1,1 @@
+INSERT INTO medicos (nombremedico) VALUES ('william'), (especialidad) VALUES ('ginecologo'), (telefono) VALUES (311452444), (estado) VALUES ('ACTIVO')

@@ -1,0 +1,12 @@
+package com.misiontic.citapp.controllers;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MedicoController {
+	
+	private List<Med>
+
+}

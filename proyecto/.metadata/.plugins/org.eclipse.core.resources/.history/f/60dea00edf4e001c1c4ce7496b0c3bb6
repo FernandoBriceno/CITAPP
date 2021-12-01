@@ -1,0 +1,28 @@
+package com.misiontic.citapp.controllers;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.misiontic.citapp.entity.Medico;
+
+@RestController
+public class MedicoController {
+	
+	private List<Medico> arregloMedicos = new ArrayList<>();
+	
+	public MedicoController() {
+		for(int c = 0;c <= 20; c++){
+			Medico objMedico = new Medico();
+			
+			objMedico.setIdMedico((c + 1L));
+			objMedico.setNombreMedico("Medico " + (c + 1));
+			objMedico.setEspecialidad("especialidad "+ (c + 1));
+			objMedico.setTelefono((c + 1L));
+			objMedico.setEstado("estado "+ (c + 1));
+		}
+	}
+	
+
+}

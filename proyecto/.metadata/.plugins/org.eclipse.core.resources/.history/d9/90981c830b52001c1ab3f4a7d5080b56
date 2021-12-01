@@ -1,0 +1,22 @@
+package com.misiontic.citapp.entity;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class Medico {
+	
+	private Long idMedico;
+	private String nombreMedico;
+	private String especialidad;
+	private Long telefono;
+	private String estado;
+	
+	public Medico() {
+		
+	}
+
+}
+
+

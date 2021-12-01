@@ -1,0 +1,1 @@
+INSERT INTO medicos (nombremedico) VALUES ('william')
