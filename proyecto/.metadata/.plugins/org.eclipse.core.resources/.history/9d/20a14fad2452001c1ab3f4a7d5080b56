@@ -1,0 +1,4 @@
+INSERT INTO medicos (nombremedico) VALUES ('william');
+INSERT INTO medicos (especialidad) VALUES ('ginecologo'); 
+INSERT INTO medicos (telefono) VALUES ('311452444');
+INSERT INTO medicos (estado) VALUES ('ACTIVO');
