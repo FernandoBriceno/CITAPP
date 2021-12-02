@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;com.misiontic.citapp.entity.medicos&apos; to &apos;Medico&apos;&#x0D;&#x0A;- Original project: &apos;citaap-api&apos;&#x0D;&#x0A;- Original element: &apos;com.misiontic.citapp.entity.medicos&apos;&#x0D;&#x0A;- Renamed element: &apos;com.misiontic.citapp.entity.Medico&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;medicos&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.misiontic.citapp.entity{medicos.java[medicos" matchStrategy="1" name="Medico" qualified="false" references="true" similarDeclarations="false" stamp="1637933940833" textual="false" version="1.0"/>
-</session>

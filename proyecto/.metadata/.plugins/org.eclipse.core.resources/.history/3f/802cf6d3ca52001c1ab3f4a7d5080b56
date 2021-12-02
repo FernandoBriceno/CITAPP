@@ -1,1 +1,0 @@
-INSERT INTO medicos (espcialidad, jornada) VALUES ('ginecologo','tarde' )
