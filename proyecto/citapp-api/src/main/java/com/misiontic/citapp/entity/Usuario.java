@@ -7,15 +7,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
 @Builder
-@Table(name="usuario")
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name="usuarios")
 public class Usuario {
 	@Id
 	@Column(name="idusuario", nullable=false)
@@ -43,6 +47,6 @@ public class Usuario {
 	@Column(name="correo", nullable=false, length=200)
 	private String correo;
 	
-	
+
 
 }
