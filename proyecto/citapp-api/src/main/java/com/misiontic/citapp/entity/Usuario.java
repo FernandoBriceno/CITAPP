@@ -7,12 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@Builder
 @Table(name="usuario")
 public class Usuario {
 	@Id
@@ -41,7 +43,6 @@ public class Usuario {
 	@Column(name="correo", nullable=false, length=200)
 	private String correo;
 	
-	public Usuario(){
-	}
+	
 
 }
