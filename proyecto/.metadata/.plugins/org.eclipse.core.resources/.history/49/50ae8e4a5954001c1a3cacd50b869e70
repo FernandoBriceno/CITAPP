@@ -3,7 +3,6 @@ package com.misiontic.citapp.controllers;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +15,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.misiontic.citapp.converters.MedicoConverter;
-import com.misiontic.citapp.dtos.MedicoDTO;
 import com.misiontic.citapp.entity.Medico;
 import com.misiontic.citapp.services.MedicoService;
 
@@ -28,35 +25,31 @@ public class MedicoController {
 	
 	@Autowired
 	private MedicoService medicoService;
-	private MedicoConverter converter = new MedicoConverter();
 	
 	@GetMapping(value="/medicos")  
-	public ResponseEntity<List<MedicoDTO>>  findAll(){
+	public ResponseEntity<List<Medico>>  findAll(){
 		List<Medico> arregloMedicos = medicoService.findAll();
-		List<MedicoDTO> arregloMedicoDto = converter.fromEntity(arregloMedicos);
-		return new ResponseEntity<List<MedicoDTO>>(arregloMedicoDto, HttpStatus.OK);
+		return new ResponseEntity<List<Medico>>(arregloMedicos, HttpStatus.OK);
 	}
 	
 	@GetMapping(value = "/medicos/{medicoId}")
-	public ResponseEntity<MedicoDTO> finById(@PathVariable("medicoId") Long medicoId){
+	public ResponseEntity<Medico> finById(@PathVariable("medicoId") Long medicoId){
 		Medico objMedico = medicoService.finById(medicoId);
-		MedicoDTO objMedicoDto = converter.fromEntity(objMedico);
-		return new ResponseEntity<MedicoDTO>(objMedicoDto, HttpStatus.OK);
+		return new ResponseEntity<Medico>(objMedico, HttpStatus.OK);
 	}
 	
 	@PostMapping(value = "/medicos")
-	public ResponseEntity<MedicoDTO> create(@RequestBody MedicoDTO medico) {
-		Medico nuevoMedico = medicoService.create(converter.fromDTO(medico));
-		MedicoDTO objMedicoDto = converter.fromEntity(nuevoMedico);
-		return new ResponseEntity<MedicoDTO>(objMedicoDto, HttpStatus.CREATED);
+	public ResponseEntity<Medico> create(@RequestBody Medico medico) {
+		Medico nuevoMedico = medicoService.create(medico);
+		return new ResponseEntity<Medico>(nuevoMedico, HttpStatus.CREATED);
 		
 	}
 	
 	@PutMapping(value= "/medicos")
-	public  ResponseEntity<MedicoDTO> update(@RequestBody MedicoDTO medico){
-		Medico objMedico = medicoService.update(converter.fromDTO(medico));
-		MedicoDTO objMedicoDto = converter.fromEntity(objMedico);		
-		return new ResponseEntity<MedicoDTO>(objMedicoDto, HttpStatus.OK);
+	public  ResponseEntity<Medico> update(@RequestBody Medico medico){
+		Medico objMedico = medicoService.update(medico);
+				
+		return new ResponseEntity<Medico>(objMedico, HttpStatus.OK);
 
 	}
 	
