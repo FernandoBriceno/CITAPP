@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     30/11/2021 9:34:27 p. m.                     */
+/* Created on:     6/12/2021 7:10:42 p. m.                      */
 /*==============================================================*/
 
 
@@ -55,7 +55,7 @@ create table usuarios
    identificacion       bigint not null  comment '',
    nombreusuario        varchar(200) not null  comment '',
    direccion            varchar(200) not null  comment '',
-   telefono             varchar(200) not null  comment '',
+   telefono             bigint not null  comment '',
    correo               varchar(200) not null  comment '',
    primary key (idusuario)
 );
