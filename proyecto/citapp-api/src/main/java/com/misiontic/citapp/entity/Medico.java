@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -34,7 +35,7 @@ public class Medico {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idMedico;
 	
-	@OneToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "idusuario", nullable = false, updatable = false, referencedColumnName = "idusuario")
 	private Usuario idUsuario;
 	
@@ -44,7 +45,7 @@ public class Medico {
 	@Column(name = "jornada", nullable = false, length = 200)
 	private String jornada;
 	
-	@OneToMany(mappedBy = "idMedico", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Cita> listaCitas;
+	//@OneToMany(mappedBy = "idMedico", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	//private List<Cita> listaCitas;
 
 }

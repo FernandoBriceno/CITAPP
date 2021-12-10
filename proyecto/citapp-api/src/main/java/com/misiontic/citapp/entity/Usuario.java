@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -55,6 +56,6 @@ public class Usuario {
 	@Column(name="correo", nullable=false, length=200)
 	private String correo;
 	
-	@OneToMany(mappedBy = "idUsuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Medico> ListaMedicos;
+	//@OneToMany(mappedBy = "idUsuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	//private List<Medico> ListaMedicos;
 }

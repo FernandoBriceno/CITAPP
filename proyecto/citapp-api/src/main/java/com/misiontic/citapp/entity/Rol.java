@@ -35,7 +35,7 @@ public class Rol {
 	@Column(name="nombrerol", nullable = false, length = 100)
 	private String nombreRol;
 	
-	@OneToMany(mappedBy = "idRol", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Usuario> listaUsuarios;
+	//@OneToMany(mappedBy = "idRol", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	//private List<Usuario> listaUsuarios;
 	
 }
