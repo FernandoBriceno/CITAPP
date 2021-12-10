@@ -9,6 +9,7 @@ public class MedicoConverter extends AbstractConverter<Medico, MedicoDTO>{
 	public MedicoDTO fromEntity(Medico entity) {
 		return MedicoDTO.builder()
 				.idMedico(entity.getIdMedico())
+				.idUsuario(entity.getIdUsuario())
 				.especialidad(entity.getEspecialidad())
 				.jornada(entity.getJornada())
 				.build();
@@ -18,6 +19,7 @@ public class MedicoConverter extends AbstractConverter<Medico, MedicoDTO>{
 	public Medico fromDTO(MedicoDTO dto) {
 		return Medico.builder()
 				.idMedico(dto.getIdMedico())
+				.idUsuario(dto.getIdUsuario())
 				.especialidad(dto.getEspecialidad())
 				.jornada(dto.getJornada())
 				.build();
