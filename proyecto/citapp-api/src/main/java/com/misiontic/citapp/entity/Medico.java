@@ -35,7 +35,7 @@ public class Medico {
 	private Long idMedico;
 	
 	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "idUsuario", nullable = false, updatable = false, referencedColumnName = "idUsuario")
+	@JoinColumn(name = "idusuario", nullable = false, updatable = false, referencedColumnName = "idusuario")
 	private Usuario idUsuario;
 	
 	@Column(name = "especialidad", nullable = false, length = 200)
@@ -45,9 +45,8 @@ public class Medico {
 	private String jornada;
 	
 	@OneToMany(mappedBy = "idMedico", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private List<Citas> listaCitasMedico;
-	
-	
+	private List<Cita> listaCitas;
+
 }
 
 
