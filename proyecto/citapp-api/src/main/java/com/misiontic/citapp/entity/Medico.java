@@ -13,6 +13,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="medicos")
 public class Medico {
 	
@@ -21,6 +24,9 @@ public class Medico {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idMedico;
 	
+	@OneToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "idUsuario", nullable = false, updatable = false, referencedColumnName = "idUsuario")
+	private Usuario idUsuario;
 	
 	@Column(name = "especialidad", nullable = false, length = 200)
 	private String especialidad;
@@ -28,14 +34,7 @@ public class Medico {
 	@Column(name = "jornada", nullable = false, length = 200)
 	private String jornada;
 	
-	
-	
-	
-	
-	public Medico() {
-		
-	}
+	@OneToMany(mappedBy = "idMedico", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private List<Citas> listaCitas;
 
 }
-
-
