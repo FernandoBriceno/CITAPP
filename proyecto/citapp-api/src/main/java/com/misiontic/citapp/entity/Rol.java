@@ -38,5 +38,4 @@ public class Rol {
 	@OneToMany(mappedBy = "idRol", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<Usuario> listaUsuarios;
 	
-	
 }
