@@ -49,3 +49,4 @@ public class ErrorHandlerConfig extends ResponseEntityExceptionHandler {
 		WrapperResponse<?> response = new WrapperResponse<>(false, "Internal Server Error", null);
 		return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
+}
