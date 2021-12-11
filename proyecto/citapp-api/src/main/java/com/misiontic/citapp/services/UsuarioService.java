@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.misiontic.citapp.entity.Usuario;
+import com.misiontic.citapp.exceptions.NoDataFoundException;
 import com.misiontic.citapp.repository.UsuarioRepository;
 import com.misiontic.citapp.validardatos.UsuarioValidator;
 
@@ -23,7 +24,7 @@ public class UsuarioService {
 	
 	public Usuario finById(Long usuarioId){
 		Usuario objUsuario = usuarioRepo.findById(usuarioId)
-				.orElseThrow(() -> new RuntimeException("no existe el usuario con ese id"));
+				.orElseThrow(() -> new NoDataFoundException("no existe el usuario con ese id"));
 		return objUsuario;
 	}
 	
@@ -40,7 +41,7 @@ public class UsuarioService {
 		UsuarioValidator.validador(usuario);
 		
 		Usuario objUsuario = usuarioRepo.findById(usuario.getIdUsuario())
-				.orElseThrow(() -> new RuntimeException("no existe el medico con ese id"));
+				.orElseThrow(() -> new NoDataFoundException("no existe el medico con ese id"));
 		
 		
 		objUsuario.setClave(usuario.getClave());
@@ -58,7 +59,7 @@ public class UsuarioService {
 	@Transactional
 	public void  delete(Long usuarioId) {
 		Usuario objUsuario = usuarioRepo.findById(usuarioId)
-				.orElseThrow(() -> new RuntimeException("no existe el usuario con ese id"));
+				.orElseThrow(() -> new NoDataFoundException("no existe el usuario con ese id"));
 		
 		usuarioRepo.delete(objUsuario);
 		

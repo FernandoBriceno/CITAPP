@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.misiontic.citapp.entity.Medico;
+import com.misiontic.citapp.exceptions.NoDataFoundException;
 import com.misiontic.citapp.repository.MedicoRepository;
 import com.misiontic.citapp.validardatos.MedicoValidator;
 
@@ -24,7 +25,7 @@ public class MedicoService {
 	
 	public Medico finById(Long medicoId){
 		Medico objMedico = medicoRepo.findById(medicoId)
-				.orElseThrow(() -> new RuntimeException("no existe el medico con ese id"));
+				.orElseThrow(() -> new NoDataFoundException("no existe el medico con ese id"));
 		return objMedico;
 	}
 	
@@ -41,7 +42,7 @@ public class MedicoService {
 		MedicoValidator.validador(medico);
 		
 		Medico objMedico = medicoRepo.findById(medico.getIdMedico())
-				.orElseThrow(() -> new RuntimeException("no existe el medico con ese id"));
+				.orElseThrow(() -> new NoDataFoundException("no existe el medico con ese id"));
 		
 		
 		objMedico.setEspecialidad(medico.getEspecialidad());
@@ -54,7 +55,7 @@ public class MedicoService {
 	@Transactional
 	public void  delete( Long medicoId) {
 		Medico objMedico = medicoRepo.findById(medicoId)
-				.orElseThrow(() -> new RuntimeException("no existe el medico con ese id"));
+				.orElseThrow(() -> new NoDataFoundException("no existe el medico con ese id"));
 		
 		medicoRepo.delete(objMedico);
 		

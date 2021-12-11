@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.misiontic.citapp.entity.Cita;
+import com.misiontic.citapp.exceptions.NoDataFoundException;
 import com.misiontic.citapp.repository.CitaRepository;
 import com.misiontic.citapp.validardatos.CitaValidator;
 
@@ -24,7 +25,7 @@ public class CitaService {
 	
 	public Cita finById(Long citaId) {
 		Cita objCita = citaRepo.findById(citaId)
-				.orElseThrow(()-> new RuntimeException(" No existe ninguna Cita con dicha identificación"));
+				.orElseThrow(()-> new NoDataFoundException(" No existe ninguna Cita con dicha identificación"));
 		return objCita;
 	}
 	
@@ -41,7 +42,7 @@ public class CitaService {
 		CitaValidator.validar(cita); 
 		
 		Cita objCita = citaRepo.findById(cita.getIdCita())
-				.orElseThrow(() -> new RuntimeException("No existe una cita con dicha identificacion"));
+				.orElseThrow(() -> new NoDataFoundException("No existe una cita con dicha identificacion"));
 		
 		objCita.setIdMedico(cita.getIdMedico());
 		objCita.setFecha(cita.getFecha());
@@ -58,7 +59,7 @@ public class CitaService {
 	@Transactional
 	public void delete ( Long citaId ) {
 		Cita objCita = citaRepo.findById(citaId)
-				.orElseThrow(()-> new RuntimeException("No existe una cita con dicha identificacion"));
+				.orElseThrow(()-> new NoDataFoundException("No existe una cita con dicha identificacion"));
 		citaRepo.delete(objCita);
 	}
 	
