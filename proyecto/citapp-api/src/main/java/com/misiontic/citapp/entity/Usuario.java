@@ -38,7 +38,7 @@ public class Usuario {
 	@JoinColumn(name = "idrol", nullable = false, updatable = false, referencedColumnName = "idrol")
 	private Rol idRol;
 	
-	@Column(name="clave", nullable=false, length=20)
+	@Column(name="clave", nullable=false, length=200)
 	private String clave;
 	
 	@Column(name="identificacion", nullable=false) 

@@ -16,9 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.misiontic.citapp.converters.UsuarioConverter;
+import com.misiontic.citapp.dtos.LoginRequestDTO;
+import com.misiontic.citapp.dtos.LoginResponseDTO;
 import com.misiontic.citapp.dtos.UsuarioDTO;
 import com.misiontic.citapp.entity.Usuario;
 import com.misiontic.citapp.services.UsuarioService;
+import com.misiontic.citapp.utils.WrapperResponse;
 
 @RestController
 public class UsuarioController {
@@ -63,5 +66,18 @@ public class UsuarioController {
 		return new ResponseEntity<Usuario>(HttpStatus.OK);
 	}
 	
+	@PostMapping(value = "/signUp")
+	public ResponseEntity<UsuarioDTO> signUp(@RequestBody UsuarioDTO usuario) {
+		Usuario nuevUsuario = usuarioService.signUp(converter.fromDTO(usuario));
+		UsuarioDTO objUsuarioDto = converter.fromEntity(nuevUsuario);
+		return new ResponseEntity<UsuarioDTO>(objUsuarioDto, HttpStatus.CREATED);
+		
+	}
+	
+	@PostMapping(value="/login")
+	public ResponseEntity<WrapperResponse<LoginResponseDTO>> login(@RequestBody LoginRequestDTO request) {
+		LoginResponseDTO response = usuarioService.login(request);
+		return new WrapperResponse<>(true, "success", response).createResponse(HttpStatus.OK);
+	}
 
 }
